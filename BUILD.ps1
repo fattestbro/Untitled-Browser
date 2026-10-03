@@ -4,7 +4,7 @@ Set-Location $PSScriptRoot
 Write-Host "=== Untitled Browser - Windows Build ==="
 
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
-    throw "Node.js 20+ is required."
+    throw "Node.js 22.12+ is required."
 }
 
 npm install
