@@ -1,8 +1,10 @@
 const {app,BrowserWindow,ipcMain,session,shell}=require("electron");
 const path=require("node:path"),fs=require("node:fs");
-const {normalizeUrl,safeExternalUrl}=require("./utils");
+const {normalizeUrl,safeExternalUrl,buildActivity}=require("./utils");
+const {DiscordRPC}=require("./discord-rpc");
 app.commandLine.appendSwitch("autoplay-policy","no-user-gesture-required");
 let mainWindow,state={history:[],bookmarks:[],downloads:[]};
+const discordRpc=new DiscordRPC();
 const stateFile=()=>path.join(app.getPath("userData"),"state.json");
 function loadState(){try{if(fs.existsSync(stateFile()))state={...state,...JSON.parse(fs.readFileSync(stateFile(),"utf8"))};}catch(e){console.error("[state] load failed",e.message);}}
 function saveState(){try{fs.mkdirSync(path.dirname(stateFile()),{recursive:true});fs.writeFileSync(stateFile(),JSON.stringify(state,null,2));}catch(e){console.error("[state] save failed",e.message);}}
@@ -18,6 +20,9 @@ ipcMain.handle("bookmarks:toggle",(_e,entry)=>{const i=state.bookmarks.findIndex
 ipcMain.handle("bookmarks:is",(_e,url)=>state.bookmarks.some(x=>x.url===url));
 ipcMain.handle("external:open",(_e,url)=>{const safe=safeExternalUrl(url);return safe?shell.openExternal(safe):false;});
 ipcMain.handle("window:devtools",()=>mainWindow?.webContents.openDevTools({mode:"detach"}));
+ipcMain.handle("discord:update",(_e,data)=>{discordRpc.setActivity(buildActivity(data||{}));});
+discordRpc.start();
 createWindow();});
+app.on("before-quit",()=>discordRpc.stop());
 app.on("window-all-closed",()=>{if(process.platform!=="darwin")app.quit();});
 }
