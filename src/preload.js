@@ -6,6 +6,7 @@ toggleBookmark:entry=>ipcRenderer.invoke("bookmarks:toggle",entry),
 isBookmarked:url=>ipcRenderer.invoke("bookmarks:is",url),
 openExternal:url=>ipcRenderer.invoke("external:open",url),
 openDevTools:()=>ipcRenderer.invoke("window:devtools"),
+updateDiscordActivity:data=>ipcRenderer.invoke("discord:update",data),
 onOpenUrl:cb=>ipcRenderer.on("open-url",(_e,url)=>cb(url)),
 onDownloadFinished:cb=>ipcRenderer.on("download-finished",(_e,item)=>cb(item))
 });
