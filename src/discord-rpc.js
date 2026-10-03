@@ -78,7 +78,7 @@ class DiscordRPC {
       return;
     }
 
-    const socket = net.createConnection(\`\${PIPE_PREFIX}\${index}\`);
+    const socket = net.createConnection(PIPE_PREFIX + index);
     let connectedOnce = false;
     let failedBeforeConnect = false;
 
