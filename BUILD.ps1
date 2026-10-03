@@ -18,5 +18,5 @@ if ($LASTEXITCODE -ne 0) { throw "Windows build failed." }
 
 Write-Host ""
 Write-Host "BUILD COMPLETE"
-Write-Host "Installer: dist\Untitled Browser Setup 1.1.0.exe"
-Write-Host "Portable:  dist\Untitled Browser 1.1.0.exe"
+Write-Host "Installer: dist\Untitled Browser Setup 1.2.0.exe"
+Write-Host "Portable:  dist\Untitled Browser 1.2.0.exe"
