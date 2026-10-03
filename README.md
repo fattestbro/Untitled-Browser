@@ -54,7 +54,7 @@ The Application ID is hardcoded in the application. There is no UI, environment 
 
 ## Build
 
-Requirements: Windows 10/11 x64 and Node.js 20+.
+Requirements: Windows 10/11 x64 and Node.js 22.12+.
 
     npm install
     npm test
