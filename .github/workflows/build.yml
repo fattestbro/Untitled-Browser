@@ -22,3 +22,22 @@ jobs:
       - run: npm install --no-fund --no-audit
       - run: npm run check
       - run: npm test
+
+  windows-package:
+    if: github.event_name != 'pull_request'
+    runs-on: windows-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-fund --no-audit
+      - run: npm run check
+      - run: npm test
+      - run: npm run package:win
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UntitledBrowser-Windows-0.5.0
+          path: dist/Untitled Browser-win32-x64/**
+          if-no-files-found: error
