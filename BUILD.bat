@@ -10,7 +10,7 @@ echo.
 
 where node >nul 2>nul
 if errorlevel 1 (
-  echo ERROR: Node.js 20+ is required.
+  echo ERROR: Node.js 22.12+ is required.
   echo Install Node.js from https://nodejs.org/
   pause
   exit /b 1
