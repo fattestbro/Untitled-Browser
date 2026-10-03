@@ -34,7 +34,17 @@ The new-tab video uses YouTube's privacy-enhanced embed host and standard player
 - contextIsolation, sandbox and disabled Node integration for the shell
 - Windows x64 NSIS installer and portable EXE
 - Node built-in automated tests
-- GitHub Actions CI and Windows packaging
+- GitHub Actions CI
+- Automatic Windows Release workflow for version tags
+
+## Repository helper files
+
+- `START_HERE.md` — beginner guide
+- `BUILD.bat` — one-click Windows build
+- `BUILD.ps1` — PowerShell build
+- `START.bat` — launches the local portable build
+- `CLEAN.bat` — removes local build/dependency output
+- `.github/workflows/release.yml` — builds and attaches Windows EXEs to GitHub Releases for `v*` tags
 
 ## Build
 
@@ -49,6 +59,16 @@ For Windows installer and portable EXE:
     npm run package:win
 
 Artifacts are created in `dist/`.
+
+On Windows, `BUILD.bat` does install + test + package in one step.
+
+## Release builds
+
+Push a tag such as `v1.1.0` to run the release workflow. The workflow builds the installer and portable EXE with `--publish never`, then uses the GitHub token to attach the resulting EXEs to the Release.
+
+The current verified Windows build contains:
+- `Untitled Browser Setup 1.1.0.exe`
+- `Untitled Browser 1.1.0.exe`
 
 ## Security
 
