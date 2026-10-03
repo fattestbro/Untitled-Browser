@@ -1,0 +1,20 @@
+{
+  "name":"untitled-browser",
+  "version":"1.0.0",
+  "description":"A privacy-first Windows Chromium browser built with Electron.",
+  "main":"src/main.js",
+  "author":"fattestbro",
+  "license":"MIT",
+  "scripts":{"start":"electron .","test":"node --test","package:win":"electron-builder --win nsis portable"},
+  "devDependencies":{"electron":"44.5.1","electron-builder":"26.0.12"},
+  "build":{
+    "appId":"com.untitledbrowser.app",
+    "productName":"Untitled Browser",
+    "asar":true,
+    "compression":"maximum",
+    "files":["src/**/*","tests/**/*","README.md","LICENSE","package.json"],
+    "win":{"target":[{"target":"nsis","arch":["x64"]},{"target":"portable","arch":["x64"]}]},
+    "nsis":{"oneClick":false,"perMachine":false,"allowToChangeInstallationDirectory":true,"createDesktopShortcut":true,"createStartMenuShortcut":true}
+  },
+  "engines":{"node":">=20"}
+}
