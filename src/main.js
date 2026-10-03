@@ -1,6 +1,7 @@
 const {app,BrowserWindow,ipcMain,session,shell}=require("electron");
 const path=require("node:path"),fs=require("node:fs");
 const {normalizeUrl,safeExternalUrl}=require("./utils");
+app.commandLine.appendSwitch("autoplay-policy","no-user-gesture-required");
 let mainWindow,state={history:[],bookmarks:[],downloads:[]};
 const stateFile=()=>path.join(app.getPath("userData"),"state.json");
 function loadState(){try{if(fs.existsSync(stateFile()))state={...state,...JSON.parse(fs.readFileSync(stateFile(),"utf8"))};}catch(e){console.error("[state] load failed",e.message);}}
