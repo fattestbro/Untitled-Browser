@@ -4,8 +4,8 @@
 
 The project is intended to be built by GitHub Actions. The workflow produces:
 
-- `Untitled Browser Setup 1.1.0.exe` — Windows installer.
-- `Untitled Browser 1.1.0.exe` — portable Windows build.
+- `Untitled Browser Setup 1.2.0.exe` — Windows installer.
+- `Untitled Browser 1.2.0.exe` — portable Windows build.
 
 For normal users, download the installer EXE from the GitHub Release. You do not need Node.js to run the packaged EXE.
 
