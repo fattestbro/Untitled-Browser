@@ -50,9 +50,9 @@ echo BUILD COMPLETE.
 echo Files are in the dist folder.
 echo.
 echo Installer:
-echo   dist\Untitled Browser Setup 1.1.0.exe
+echo   dist\Untitled Browser Setup 1.2.0.exe
 echo.
 echo Portable:
-echo   dist\Untitled Browser 1.1.0.exe
+echo   dist\Untitled Browser 1.2.0.exe
 echo.
 pause
