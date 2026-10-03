@@ -27,7 +27,7 @@ jobs:
         run: npm test
 
       - name: Build Windows installer and portable EXE
-        run: npx electron-builder --win nsis portable --publish never
+        run: npm run package:win
 
       - name: Publish GitHub Release
         shell: bash
@@ -35,7 +35,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create "${GITHUB_REF_NAME}" \
-            "dist/Untitled Browser Setup 1.1.0.exe" \
-            "dist/Untitled Browser 1.1.0.exe" \
+            dist/*.exe \
             --title "Untitled Browser ${GITHUB_REF_NAME#v}" \
             --generate-notes
