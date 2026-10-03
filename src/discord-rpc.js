@@ -80,9 +80,11 @@ class DiscordRPC {
 
     const socket = net.createConnection(\`\${PIPE_PREFIX}\${index}\`);
     let connectedOnce = false;
+    let failedBeforeConnect = false;
 
     const failBeforeConnect = () => {
-      if (connectedOnce || this.stopped) return;
+      if (connectedOnce || failedBeforeConnect || this.stopped) return;
+      failedBeforeConnect = true;
       socket.destroy();
       this.connectToPipe(index + 1);
     };
