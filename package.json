@@ -1,20 +1,61 @@
 {
-  "name":"untitled-browser",
-  "version":"1.1.0",
-  "description":"A privacy-first Windows Chromium browser built with Electron.",
-  "main":"src/main.js",
-  "author":"fattestbro",
-  "license":"MIT",
-  "scripts":{"start":"electron .","test":"node --test","package:win":"electron-builder --win nsis portable --publish never"},
-  "devDependencies":{"electron":"44.5.1","electron-builder":"26.0.12"},
-  "build":{
-    "appId":"com.untitledbrowser.app",
-    "productName":"Untitled Browser",
-    "asar":true,
-    "compression":"maximum",
-    "files":["src/**/*","tests/**/*","README.md","LICENSE","START_HERE.md","BUILD.bat","BUILD.ps1","START.bat","CLEAN.bat","package.json"],
-    "win":{"target":[{"target":"nsis","arch":["x64"]},{"target":"portable","arch":["x64"]}]},
-    "nsis":{"oneClick":false,"perMachine":false,"allowToChangeInstallationDirectory":true,"createDesktopShortcut":true,"createStartMenuShortcut":true}
+  "name": "untitled-browser",
+  "version": "1.2.0",
+  "description": "A privacy-first Windows Chromium browser built with Electron with fixed Discord Rich Presence.",
+  "main": "src/main.js",
+  "author": "fattestbro",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test",
+    "package:win": "electron-builder --win nsis portable --publish never"
   },
-  "engines":{"node":">=20"}
+  "devDependencies": {
+    "electron": "44.5.1",
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "com.untitledbrowser.app",
+    "productName": "Untitled Browser",
+    "asar": true,
+    "compression": "maximum",
+    "files": [
+      "src/**/*",
+      "tests/**/*",
+      "README.md",
+      "LICENSE",
+      "START_HERE.md",
+      "BUILD.bat",
+      "BUILD.ps1",
+      "START.bat",
+      "CLEAN.bat",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }
