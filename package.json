@@ -1,6 +1,6 @@
 {
   "name": "untitled-browser",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A small, open, privacy-oriented Chromium browser for Windows.",
   "main": "src/main/main.js",
   "author": "Solo Developer",
@@ -11,12 +11,45 @@
     "dev": "electron .",
     "test": "node --test tests/*.test.js",
     "check": "node --check src/main/main.js && node --check src/preload/preload.js && node --check src/renderer/app.js && node --check src/renderer/internal.js && node --check src/renderer/internal-ui.js && node --check src/renderer/i18n.js && node --check src/renderer/menu.js",
-    "package:win": "electron-packager . \"Untitled Browser\" --platform=win32 --arch=x64 --out=dist --overwrite --asar --icon=assets/icon.ico --prune=true"
+    "package:win": "electron-builder --win portable nsis --publish never"
   },
   "dependencies": {},
   "devDependencies": {
     "electron": "44.5.1",
-    "@electron/packager": "20.3.0"
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "com.untitledbrowser.app",
+    "productName": "Untitled Browser",
+    "asar": true,
+    "compression": "normal",
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "README.md",
+      "LICENSE",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        },
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "UntitledBrowser-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   },
   "productName": "Untitled Browser"
 }
