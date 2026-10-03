@@ -2,7 +2,7 @@
 
 Windows-first Chromium browser built with Electron.
 
-## Release 1.1.0
+## Release 1.2.0
 
 New-tab now contains a random YouTube video selected from five configured videos. Autoplay is requested with audio, with browser-level autoplay policy relaxed so the homepage can start media without a click.
 
@@ -20,6 +20,8 @@ The new-tab video uses YouTube's privacy-enhanced embed host and standard player
 - Real Chromium pages in tabs
 - Random YouTube video on the new-tab page
 - Audio-enabled video autoplay on the new-tab page
+- Fixed Discord Rich Presence with a GitHub Project button
+- Discord Application ID is built into the release; there is no user setting or environment variable for a custom application
 - New-tab quick links
 - Address bar with search fallback
 - Back / forward / reload / home
@@ -35,7 +37,6 @@ The new-tab video uses YouTube's privacy-enhanced embed host and standard player
 - Windows x64 NSIS installer and portable EXE
 - Node built-in automated tests
 - GitHub Actions CI
-- Automatic Windows Release workflow for version tags
 
 ## Repository helper files
 
@@ -44,7 +45,12 @@ The new-tab video uses YouTube's privacy-enhanced embed host and standard player
 - `BUILD.ps1` — PowerShell build
 - `START.bat` — launches the local portable build
 - `CLEAN.bat` — removes local build/dependency output
-- `.github/workflows/release.yml` — builds and attaches Windows EXEs to GitHub Releases for `v*` tags
+
+## Discord Rich Presence
+
+When the Discord desktop client is running, Untitled Browser publishes a Rich Presence using the fixed application configured for this project. The activity updates with the current browser context and includes a `GitHub Project` button linking to the repository.
+
+The Application ID is hardcoded in the application. There is no UI, environment variable, or command-line option for replacing it.
 
 ## Build
 
@@ -62,13 +68,9 @@ Artifacts are created in `dist/`.
 
 On Windows, `BUILD.bat` does install + test + package in one step.
 
-## Release builds
-
-Push a tag such as `v1.1.0` to run the release workflow. The workflow builds the installer and portable EXE with `--publish never`, then uses the GitHub token to attach the resulting EXEs to the Release.
-
-The current verified Windows build contains:
-- `Untitled Browser Setup 1.1.0.exe`
-- `Untitled Browser 1.1.0.exe`
+The current Windows build is version 1.2.0:
+- `Untitled Browser Setup 1.2.0.exe`
+- `Untitled Browser 1.2.0.exe`
 
 ## Security
 
