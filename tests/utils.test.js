@@ -7,3 +7,5 @@ test("javascript URL is rejected",()=>assert.equal(u.safeExternalUrl("javascript
 test("HTTP(S) external URLs are allowed",()=>{assert.equal(u.safeExternalUrl("https://example.com"),"https://example.com/");assert.equal(u.safeExternalUrl("http://example.com"),"http://example.com/")});
 test("private activity hides domain",()=>assert.deepEqual(u.buildActivity({url:"https://example.com",incognito:true}),{details:"Browsing privately",state:"Incognito"}));
 test("site activity uses safe domain",()=>assert.deepEqual(u.buildActivity({url:"https://github.com/a",showSite:true}),{details:"Browsing the web",state:"github.com"}));
+test("homepage video list contains exactly five supplied YouTube IDs",()=>assert.deepEqual(u.homepageVideoIds(),["8L31g_3gcGU","co1YijOZdfw","IAHKBGU0dmc","CZdzWpUQEKU","RpbW_lIywmg"]));
+test("homepage random selector stays inside configured list",()=>{const list=u.homepageVideoIds();for(const n of [0,0.19,0.39,0.59,0.79,0.99])assert.ok(list.includes(u.randomHomepageVideo(()=>n)));});
