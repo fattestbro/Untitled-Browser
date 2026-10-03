@@ -1,5 +1,8 @@
 name: CI
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -16,7 +19,6 @@ jobs:
       - run: npm install
       - run: npm test
   windows-package:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: windows-latest
     needs: test
     steps:
