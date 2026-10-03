@@ -5,14 +5,14 @@
   "main":"src/main.js",
   "author":"fattestbro",
   "license":"MIT",
-  "scripts":{"start":"electron .","test":"node --test","package:win":"electron-builder --win nsis portable"},
+  "scripts":{"start":"electron .","test":"node --test","package:win":"electron-builder --win nsis portable --publish never"},
   "devDependencies":{"electron":"44.5.1","electron-builder":"26.0.12"},
   "build":{
     "appId":"com.untitledbrowser.app",
     "productName":"Untitled Browser",
     "asar":true,
     "compression":"maximum",
-    "files":["src/**/*","tests/**/*","README.md","LICENSE","package.json"],
+    "files":["src/**/*","tests/**/*","README.md","LICENSE","START_HERE.md","BUILD.bat","BUILD.ps1","START.bat","CLEAN.bat","package.json"],
     "win":{"target":[{"target":"nsis","arch":["x64"]},{"target":"portable","arch":["x64"]}]},
     "nsis":{"oneClick":false,"perMachine":false,"allowToChangeInstallationDirectory":true,"createDesktopShortcut":true,"createStartMenuShortcut":true}
   },
