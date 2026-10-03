@@ -14,7 +14,7 @@ For normal users, download the installer EXE from the GitHub Release. You do not
 Developer requirements:
 
 - Windows 10/11 x64
-- Node.js 20+
+- Node.js 22.12+
 
 Then run:
 
