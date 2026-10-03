@@ -13,8 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
+      - run: npm install
       - run: npm test
   windows-package:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -25,8 +24,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
+      - run: npm install
       - run: npm test
       - run: npm run package:win
       - uses: actions/upload-artifact@v4
