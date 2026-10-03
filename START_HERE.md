@@ -46,4 +46,3 @@ It launches the portable EXE from `dist\`.
 
 Every push to `main` runs tests and a Windows packaging job.
 
-A version tag such as `v1.1.0` runs the release workflow and attaches the Windows installer and portable EXE to the GitHub Release automatically.
