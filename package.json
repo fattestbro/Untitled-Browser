@@ -1,6 +1,6 @@
 {
   "name":"untitled-browser",
-  "version":"1.0.0",
+  "version":"1.1.0",
   "description":"A privacy-first Windows Chromium browser built with Electron.",
   "main":"src/main.js",
   "author":"fattestbro",
