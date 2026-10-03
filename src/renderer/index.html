@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: file: https:;">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Untitled Browser</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="chrome-ui">
+  <div class="title-strip">
+    <div class="brand">untitled<span>://</span></div>
+    <div class="window-tools">
+      <button class="winbtn" id="minBtn" aria-label="Minimize">—</button>
+      <button class="winbtn" id="maxBtn" aria-label="Maximize">□</button>
+      <button class="winbtn close" id="closeBtn" aria-label="Close">×</button>
+    </div>
+  </div>
+  <div class="tabs-row" id="tabsRow"></div>
+  <div class="toolbar">
+    <div class="nav-buttons">
+      <button class="icon-btn" data-action="back" title="Back" data-i18n-title="back"></button>
+      <button class="icon-btn" data-action="forward" title="Forward" data-i18n-title="forward"></button>
+      <button class="icon-btn" data-action="reload" title="Reload" data-i18n-title="reload"></button>
+      <button class="icon-btn" data-action="home" title="Home" data-i18n-title="home"></button>
+    </div>
+    <div class="address-wrap">
+      <span class="security-dot" id="securityDot"></span>
+      <input id="address" autocomplete="off" spellcheck="false" placeholder="Search or enter address" data-i18n-placeholder="search" />
+      <button class="address-action" id="bookmarkBtn" title="Bookmark" data-i18n-title="bookmark"></button>
+      <button class="address-action" id="pipBtn" title="Picture-in-Picture">PiP</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" title="Menu" data-i18n-title="menu"></button>
+  </div>
+</header>
+<div class="internal-panel hidden" id="internalPanel"></div>
+<div class="toast hidden" id="toast"></div>
+<script src="i18n.js"></script><script src="internal-ui.js"></script><script src="app.js"></script>
+</body>
+</html>

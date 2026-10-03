@@ -3,7 +3,10 @@ dist/
 release/
 *.log
 .DS_Store
-Thumbs.db
-.vscode/
 .idea/
-npm-debug.log*
+.vscode/
+userData/
+
+.runtime/
+data/*
+!data/.gitkeep

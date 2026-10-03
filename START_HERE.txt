@@ -1,0 +1,9 @@
+UNTITLED BROWSER
+
+Windows:
+
+1. Double-click START.cmd
+2. Wait for the first automatic setup
+3. Untitled Browser starts
+
+No build command is required.

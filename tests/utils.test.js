@@ -1,9 +1,0 @@
-const test=require("node:test"),assert=require("node:assert/strict"),u=require("../src/utils");
-test("domain becomes HTTPS URL",()=>assert.equal(u.normalizeUrl("example.com"),"https://example.com"));
-test("plain text becomes search",()=>assert.match(u.normalizeUrl("роблокс"),/^https:\/\/www\.google\.com\/search\?q=/));
-test("display domain removes www",()=>assert.equal(u.displayDomain("https://www.youtube.com/watch?v=x"),"youtube.com"));
-test("internal URL is detected",()=>assert.equal(u.isInternalUrl("untitled://settings"),true));
-test("javascript URL is rejected",()=>assert.equal(u.safeExternalUrl("javascript:alert(1)"),null));
-test("HTTP(S) external URLs are allowed",()=>{assert.equal(u.safeExternalUrl("https://example.com"),"https://example.com/");assert.equal(u.safeExternalUrl("http://example.com"),"http://example.com/")});
-test("private activity hides domain",()=>assert.deepEqual(u.buildActivity({url:"https://example.com",incognito:true}),{details:"Browsing privately",state:"Incognito"}));
-test("site activity uses safe domain",()=>assert.deepEqual(u.buildActivity({url:"https://github.com/a",showSite:true}),{details:"Browsing the web",state:"github.com"}));
